@@ -1,0 +1,55 @@
+```
+
+$cat /usr/lib/systemd/system/apache2.service
+
+Cntr+C 
+
+Write to a file
+
+$sudo nano /etc/systems/system/randmacgen.service
+
+Cntrl+V
+
+Under Unit,
+
+Delete everything(After, Documentation) except the Description.
+
+set
+
+Description=Random mac gen
+
+Under Service make
+
+Type=Simple
+
+Execstart=  /bin/bash path/to/randmacge.sh 
+
+(Keep these 2 lines delete everything else)
+
+Let's give permission
+
+$sudo chmod 644 /etc/systems/system/randmacgen.service
+
+Start the service
+
+$sudo randmacgen service start
+
+To Run service on boot time
+
+$sudo systemctl enable randmacgen
+
+Using crontab to run our script automatically after every hour( visit crontab guru site for time customization)
+
+$service cron status
+
+ (turn on cron service. By default its on in kali Linux)
+
+$sudo crontab -e
+
+Scroll n on  last line and  write
+
+0 * * * * path/to/randmacgen.sh >  $HOME/cron.log
+
+```
+
+Alright ! Now we made the script smart n we became smarter.
